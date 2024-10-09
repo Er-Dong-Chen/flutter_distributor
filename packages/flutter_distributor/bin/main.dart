@@ -31,21 +31,21 @@ Future<void> main(List<String> args) async {
   runner.addCommand(CommandUpgrade(distributor));
 
   ArgResults argResults = runner.parse(args);
-  if (argResults.wasParsed('version')) {
-    String? currentVersion = await distributor.getCurrentVersion();
-    if (currentVersion != null) {
-      logger.info(currentVersion);
-      return;
-    }
-  }
+  // if (argResults.wasParsed('version')) {
+  //   String? currentVersion = await distributor.getCurrentVersion();
+  //   if (currentVersion != null) {
+  //     logger.info(currentVersion);
+  //     return;
+  //   }
+  // }
 
-  if (argResults['version-check']) {
-    logger.info('Checking version');
-    // Check version of flutter_distributor on every run
-    if (!await distributor.checkVersion()) {
-      logger.info('Up to date');
-    }
-  }
+  // if (argResults['version-check']) {
+  //   logger.info('Checking version');
+  //   // Check version of flutter_distributor on every run
+  //   if (!await distributor.checkVersion()) {
+  //     logger.info('Up to date');
+  //   }
+  // }
 
   return runner.runCommand(argResults);
 }
